@@ -1,13 +1,7 @@
 package niko.springframework.petclinic.services;
 
-import java.util.Set;
 import niko.springframework.petclinic.model.Pet;
 
-public interface PetService {
+public interface PetService extends CrudService<Pet, Long> {
 
-  Pet findById(Long id);
-
-  Pet save(Pet pet);
-
-  Set<Pet> findAll();
 }
