@@ -2,9 +2,10 @@ package niko.springframework.petclinic.services.map;
 
 import java.util.Set;
 import niko.springframework.petclinic.model.Pet;
-import niko.springframework.petclinic.services.CrudService;
 import niko.springframework.petclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
   @Override
