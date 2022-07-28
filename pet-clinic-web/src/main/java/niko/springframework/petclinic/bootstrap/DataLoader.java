@@ -1,6 +1,8 @@
 package niko.springframework.petclinic.bootstrap;
 
+import java.time.LocalDate;
 import niko.springframework.petclinic.model.Owner;
+import niko.springframework.petclinic.model.Pet;
 import niko.springframework.petclinic.model.PetType;
 import niko.springframework.petclinic.model.Vet;
 import niko.springframework.petclinic.services.OwnerService;
@@ -37,12 +39,32 @@ public class DataLoader implements CommandLineRunner {
     Owner owner1 = new Owner();
     owner1.setFirstName("James");
     owner1.setLastName("Hetfield");
+    owner1.setAddress("123 Random");
+    owner1.setCity("Not a city");
+    owner1.setTelephone("82354238523");
+
+    Pet jamesPet = new Pet();
+    jamesPet.setPetType(savedDogPetType);
+    jamesPet.setOwner(owner1);
+    jamesPet.setBirthDate(LocalDate.now());
+    jamesPet.setName("Doggo");
+    owner1.getPets().add(jamesPet);
 
     ownerService.save(owner1);
 
     Owner owner2 = new Owner();
     owner2.setFirstName("Lars");
     owner2.setLastName("Ulrich");
+    owner1.setAddress("777 Bogdan Street");
+    owner1.setCity("Zalupkina");
+    owner1.setTelephone("5415641654");
+
+    Pet larsPet = new Pet();
+    larsPet.setPetType(savedCatPetType);
+    larsPet.setOwner(owner2);
+    larsPet.setBirthDate(LocalDate.now());
+    larsPet.setName("Catie");
+    owner2.getPets().add(larsPet);
 
     ownerService.save(owner2);
 
